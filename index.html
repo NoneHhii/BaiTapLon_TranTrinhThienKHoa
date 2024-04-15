@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="link/swiper-bundle.min.css">
+    <script src="link/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/product.js">
+    <title>vacuumStore</title>
+
+    <style>
+        #listPr {
+            margin-top: 10px;
+        }
+
+        #product {
+            /* margin-bottom: 300px; */
+            width: 100%;
+        }
+
+        #product #item{
+            position: relative;
+            height: 330px;
+            width: 200%;
+            background-image: url(img/bigSale.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #product:hover {
+            box-shadow: -2px 1px 2px cyan;
+        }
+
+        #product img {
+            position: absolute;
+            margin: auto;
+            top: 15px;
+            left: 0;
+            padding: 10px;
+            width: 100%;
+            height: 80%;
+            z-index: -1;
+            /* transition: padding 0.2 ease-in-out; */
+        }
+
+        #product img:hover {
+            padding: 5px;
+        }
+
+        #text {
+            width: 114%;
+        }
+
+        .div-down {
+            /* z-index: 1; */
+            height: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="banner img-sm-fluid" style="height: 40px;">
+            <img src="img/banner2.png" alt="" title="banner khuyến mãi" height="100%" width="100%">
+        </div>
+        <div class="nav">
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a class="nav-link" href="html/chiNhanh.html">Hệ thống chi nhánh</a></li>
+                <li class="nav-item"><a class="nav-link" href="html/baoHanhNav.html">Chính sách bảo hành & 35 ngày đổi trả</a></li>
+                <li class="nav-item"><a class="nav-link" href="html/gopYVaPhanHoi.html">Góp ý và phản hồi</a></li>
+                <li class="nav-item"><a class="nav-link" href="html/theoGioiDonHang.html">Theo dõi đơn hàng</a></li>
+                <li class="nav-item d-flex">
+                    <a class="nav-link" href="html/dangKy.html" style="margin-right: -18px;">Đăng ký</a>
+                    <a class="nav-link" href="html/dangNhap.html">/Đăng nhập</a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar navbar-expand-sm">
+            <a class="navbar-brand" href="index.html"><img src="img/logo.jfif" alt="" title="logo" id="logo" width="120px" height="120px"> </a>
+            
+            <ul class="navbar-nav ms-sm-20 bg-white">
+                <div class="d-flex justify-content-center" style="margin-left: 120px;"> 
+                    <!-- <div class="input-group w-auto"> -->
+                        <input class="form-control" type="text" aria-describedby="button-addon1" placeholder="Tìm kiếm sản phẩm..." id="search">
+                        <button type="button" class="btn btn-primary active justify-content-center" id="button-addon1" data-mdb-ripple-color="dark" style="width: 35px; height: 38px; margin-left: -30px;"><img class="d-flex" src="img/searchIcon.png" alt="" style="margin-left: -5px;"></button>
+                    <!-- </div> -->
+                </div>
+                <li class="nav-item" style="margin-left: 80px;">
+                    <a class="nav-link" href="">
+                        <img src="img/cart.png" alt="" title="cart">
+                        <div id="infor">
+                            <span>Giỏ hàng</span><br>
+                            <span></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        <img src="img/document.png" alt="">
+                        <div id="info" style="float: right;">
+                            <span>Khiếu nại</span><br>
+                            <span class="text-danger" id="phone">0375112303</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        <img src="img/hotLine.png" alt="">
+                        <div id="info" style="float: right;">
+                            <span>Hotline bán hàng</span><br>
+                            <span class="text-danger" id="phone">1900 2628</span>
+                        </div id="info">
+                    </a> 
+                </li>
+                <li class="nav-item nav-sm-wrap">
+                    <a class="nav-link" href="">
+                        <img src="img/staffHotline.png" alt="">
+                        <div id="info" style="float: right;">
+                            <span>Tư vấn kỹ thuật</span><br>
+                            <span class="text-danger" id="phone">1900 2628</span>
+                        </div>
+                    </a>
+                </li>
+           </ul>
+        </div>
+    </header>
+        
+    <div class="nav">
+        <ul class="nav justify-content-center shadow-sm mb-2">
+            <li class="nav-item"><a class="nav-link" href="" style="background-color: red; color: #fff;">Sale lớn 50% chỉ hôm nay</a></li>
+            <li class="nav-item"><a class="nav-link" href="">Mua trả góp 0 đồng</a></li>
+            <li class="nav-item"><a class="nav-link" href="">Ưu đãi ngân hàng</a></li>
+            <li class="nav-item"><a class="nav-link" href="">Nhiều chương trình khuyến mãi</a></li>
+            <li class="nav-item"><a class="nav-link" href="">Mua săm thoải mái</a></li>
+        </ul>
+    </div>
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide" style="background-image: url(img/slide1.png); background-size: contain;"></div>
+            <div class="swiper-slide" style="background-image: url(img/slide2.png); background-size: contain;"></div>
+            <div class="swiper-slide" style="background-image: url(img/slide3.png); background-size: contain;"></div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+        
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        
+        <!-- If we need scrollbar -->
+        <!-- <div class="swiper-scrollbar"></div> -->
+        </div>
+
+    <div class="find">
+        <h4>Tìm Kiếm Sản Phẩm</h4>
+        <div class="sort">
+            <div class="filter bg-success">
+                <img src="img/filter.png" alt="" width="20px">
+                <span>Bộ lọc</span>
+            </div>
+            <div class="item-1">
+                <div class="content">
+                    <button class="btn d-flex border" onclick="openA('.item-1')">
+                        <span>Thương hiệu</span>
+                        <div class="arrow">
+        
+                        </div>
+                    </button>
+                </div>
+                <div class="select-down">
+                    <div class="rec">
+        
+                    </div>
+                    <div class="div-down container p-3" style="width: 500px;">
+                        <div class="row mt-2 mb-3">
+                            <div class="col-3" id="it">
+                                <img class="border border-success p-2" src="img/panasonic_icon_438.png" alt="" width="80px" height="30px">
+                            </div>
+                            <div class="col-3" id="it">
+                                <img class="border border-success p-2" src="img/electrolux_icon_615.png" alt="" width="80px" height="30px">
+                            </div>
+                            <div class="col-3" id="it">   
+                                <img class="border border-success p-2" src="img/samsung_icon_195.png" alt="" width="80px" height="30px">
+                            </div>
+                            <div class="col-3" id="it">
+                                <img class="border border-success p-2" src="img/hitachi_icon_679.png" alt="" width="80px" height="30px">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-3" id="it">
+                                <img class="border border-success p-2" src="img/perfect_icon_870.png" alt="" width="80px" height="30px">
+                            </div>
+                            <div class="col-3" id="it">
+                                <img class="border border-success p-2" src="img/gaabor_icon_798.png" alt="" width="80px" height="30px">
+                            </div>
+                            <div class="col-3" id="it">   
+                                <img class="border border-success p-2" src="img/comfee_icon_350.png" alt="" width="80px" height="30px">
+                            </div>
+                            <div class="col-3" id="it">
+                                <img class="border border-success p-2" src="img/daewoo_icon_171.png" alt="" width="80px" height="30px">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3">   
+                                
+                            </div>
+                            <div class="col-3" id="it">
+                                <img class="border border-success p-2" src="img/shimono_icon_107.png" alt="" width="80px" height="30px">
+                            </div>
+                            <div class="col-3" id="it">
+                                <img class="border border-success p-2" src="img/toshiba_icon_126.png" alt="" width="80px" height="30px">
+                            </div>
+                            
+                            <div class="col-3">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item-2">
+                <div class="content">
+                    <button class="btn d-flex border" onclick="openA('.item-2')">
+                        <span>Giá bán</span>
+                        <div class="arrow">
+        
+                        </div>
+                    </button>
+                </div>
+                <div class="select-down">
+                    <div class="rec">
+        
+                    </div>
+                    <div class="div-down container" style="width: 570px;">
+                        <div class="d-flex justify-content-sm-between p-3">
+                            <div class="p-2 border border-success">Dưới 500 ngàn</div>
+                            <div class="p-2 border border-success">Từ 500 - 1 triệu</div>
+                            <div class="p-2 border border-success">Từ 1 - 1.5 triệu</div>
+                            <div class="p-2 border border-success">Trên 1.5 triệu</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item-3">
+                <div class="content">
+                    <button class="btn d-flex border" onclick="openA('.item-3')">
+                        <span>Loại sản phẩm</span>
+                        <div class="arrow">
+        
+                        </div>
+                    </button>
+                </div>
+                <div class="select-down">
+                    <div class="rec">
+        
+                    </div>
+                    <div class="div-down container" style="width: 570px;">
+                        <div class="d-flex flex-wrap">
+                            <div class="p-2 border border-success" style="margin: 6px;">Hút bụi cầm tay</div>
+                            <div class="p-2 border border-success" style="margin: 6px;">Hút bụi dạng hộp</div>
+                            <div class="p-2 border border-success" style="margin: 6px;">Hút bụi không dây mini</div>
+                            <div class="p-2 border border-success" style="margin: 6px;">Robot hút bụi</div>
+                            <div class="p-2 border border-success" style="margin: 6px;">Hút bụi công nghiệp</div>
+                            <div class="p-2 border border-success" style="margin: 6px;">Hút bụi đệm giường</div>
+                            <div class="p-2 border border-success" style="margin: 6px;">Máy giặt sofa nệm</div>
+                        </div>
+                    </div>
+                </div>                          
+            </div>
+            <div class="item-4">
+                <div class="content">
+                    <button class="btn d-flex border" onclick="openA('.item-4')">
+                        <span>Công suất (W)</span>
+                        <div class="arrow">
+        
+                        </div>
+                    </button>
+                </div>
+                <div class="select-down">
+                    <div class="rec">
+        
+                    </div>
+                    <div class="div-down container" style="width: 570px;">
+                        <div class="d-flex flex-wrap">
+                            <div class="p-2 border border-success" style="margin: 6px;">Dưới 2000W</div>
+                            <div class="p-2 border border-success" style="margin: 6px;">Trên 2000W</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tips">
+            <span>
+                <h4>Máy hút bụi - Robot Hút Bụi</h4>
+                ( <h5>62</h5> sản phẩm)
+            </span>
+            <div class="tip-content">
+                <div class="tip-item">
+                    <img src="img/bagShop.png" alt="">
+                    <span>Nên mua</span>
+                </div>
+                <div class="tip-item">
+                    <img src="img/bestseller.png" alt="">
+                    <span>Bán chạy</span>
+                </div>
+                <div class="tip-item">
+                    <img src="img/installment.png" alt="">
+                    <span>Trả góp 0%</span>
+                </div>
+                <div class="tip-item">
+                    <span>Mới 2024</span>
+                </div>
+                <div class="tip-item">
+                    <img src="img/sortInc.png" alt="">
+                    <span>Giá thấp > cao</span>
+                </div>
+                <div class="tip-item">
+                    <img src="img/sortDec.png" alt="">
+                    <span>Giá cao > thấp</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="category">
+        <span>Chọn máy hút bụi - robot hút bụi theo loại:</span><br>
+        <div id="select">
+            <div class="cate">
+                <img src="img/robotHB.png" alt="">
+                <span>Robot hút bụi</span>
+            </div>
+            <div class="cate">
+                <img src="img/hutBuiCamTay.png" alt="">
+                <span>Hút bụi cầm tay</span>
+            </div>
+            <div class="cate">
+                <img src="img/hutBuiDH.png" alt="">
+                <span>Hút bụi dạng hộp</span>
+            </div>
+            <div class="cate">
+                <img src="img/HBKhongDay.png" alt="">
+                <span>Hút bụi không dây mini</span>
+            </div>
+            <div class="cate">
+                <img src="img/mayCN.png" alt="">
+                <span>Hút bụi công nghiệp</span>
+            </div>
+            <div class="cate">
+                <img src="img/HBDem.png" alt="">
+                <span>Hút bụi đệm giường</span>                
+            </div>
+            <div class="cate">
+                <img src="img/sofa-nem.png" alt="">
+                <span>Máy giặt sofa, nệm</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mx-auto" style="width: 80%;" id="listPr">
+        <div class="row">
+            <div class="col-0"></div>
+            <div class="col" id="product">
+                <div class="row">
+                    <a href="html/sanPham.html" id="item">
+                        <img src="img/may-hut-bui-cam_main_970_450.png" alt="" width="100%" height="100%">
+                    </a>
+                </div>
+                <div class="row bg-light p-1 border" id="text">
+                    <a href="html/sanPham.html" style="text-decoration: none;">
+                        <span>
+                            <B>Gaabor </B>
+                            Máy Hút Bụi Cầm Tay <span id="idPro-1">GVCC-M1A1</span> <br>
+                            <B class="text-danger">129.000 <sup>đ</sup></B>
+                        </span>
+                    </a>
+                    
+                    <span class="text-danger" style="text-decoration: line-through;">480.000đ</span>
+                    <span class="bg-primary rounded text-light" style="margin-left: 10px;"> -73%</span><br>
+                    <a href="html/chinhSachHoanTien.html" class="" style="text-decoration: none;"><small>Hoàn tiền gấp đôi nếu đâu rẽ hơn</small></a>
+                </div>
+            </div>
+            <div class="col" id="product">
+                <div class="row">
+                    <a href="html/Máy Hút Bụi Gaabor VCW14M-WH01A.html" id="item">
+                        <img src="img/may-hut-bui-gaa_main_160_450.png" alt="" width="150px">
+                    </a>
+                </div>
+                <div class="row bg-light p-1 border" id="text">
+                    <span>
+                        <B>Gaabor </B>
+                        Máy Hút Bụi VCW14M-WH01A <br>
+                        <B class="text-danger">335.000 <sup>đ</sup></B>
+                    </span>
+                    
+                    <span class="text-danger" style="text-decoration: line-through;">600.000đ</span>
+                    <span class="bg-primary rounded text-light" style="margin-left: 10px;"> -44%</span><br>
+                    <a href="html/chinhSachHoanTien.html" class="" style="text-decoration: none;"><small>Hoàn tiền gấp đôi nếu đâu rẽ hơn</small></a>
+                </div>
+            </div>
+            <div class="col" id="product">
+                <div class="row">
+                    <a href="html/Máy Hút Bụi Gaabor GVCW-M15AS.html" id="item">
+                        <img src="img/may-hut-bui-gaa_GVCW_928_450.png" alt="" width="150px">
+                    </a>
+                </div>
+                <div class="row bg-light p-1 border" id="text">
+                    <span>
+                        <B>Deerma </B>
+                        Máy Hút Bụi GVCW-M15AS <br>
+                        <B class="text-danger">279.000 <sup>đ</sup></B>
+                    </span>
+                    
+                    <span class="text-danger" style="text-decoration: line-through;">700.000đ</span>
+                    <span class="bg-primary rounded text-light" style="margin-left: 10px;"> -65%</span><br>
+                    <a href="html/chinhSachHoanTien.html" class="" style="text-decoration: none;"><small>Hoàn tiền gấp đôi nếu đâu rẽ hơn</small></a>
+                </div>
+            </div>
+            <div class="col" id="product">
+                <div class="row">
+                    <a href="html/Máy Hút Bụi Deerma DX115C.html" id="item">
+                        <img src="img/may-hut-bui-dee_DX115c.png" alt="" width="150px">
+                    </a>
+                </div>
+                <div class="row bg-light p-1 border" id="text">
+                    <span>
+                        <B>Deerma </B>
+                        Máy hút bụi DX115C - MH01 <br>
+                        <B class="text-danger">299.000 <sup>đ</sup></B>
+                    </span>
+                    
+                    <span class="text-danger" style="text-decoration: line-through;">699.000đ</span>
+                    <span class="bg-primary rounded text-light" style="margin-left: 10px;"> -57%</span><br>
+                    <a href="html/chinhSachHoanTien.html" class="" style="text-decoration: none;"><small>Hoàn tiền gấp đôi nếu đâu rẽ hơn</small></a>
+                </div>
+            </div>
+            <div class="col" id="product">
+                <div class="row">
+                    <a href="" id="item">
+                        <img src="img/may-hut-bui-khong-dayVC01.png" alt="" width="150px">
+                    </a>
+                </div>
+                <div class="row bg-light p-1 border" id="text">
+                    <span>
+                        <B>Deerma </B>
+                        Máy Hút Bụi DX118C - ACC1 <br>
+                        <B class="text-danger">499.000 <sup>đ</sup></B>
+                    </span>
+                    
+                    <span class="text-danger" style="text-decoration: line-through;">699.000đ</span>
+                    <span class="bg-primary rounded text-light" style="margin-left: 10px;"> -29%</span><br>
+                    <a href="html/chinhSachHoanTien.html" class="" style="text-decoration: none;"><small>Hoàn tiền gấp đôi nếu đâu rẽ hơn</small></a>
+                </div>
+            </div>
+            <div class="col-0"></div>
+        </div>
+        <div class="row">
+            <div class="col" id="product">
+                <div class="row">
+                    <a href="html/Máy Hút Bụi Deerma DX118C.html" id="item">
+                        <img src="img/may-hut-bui-dee_DX118C.png" alt="" width="150px">
+                    </a>
+                </div>
+                <div class="row bg-light p-1 border" id="text">
+                    <span>
+                        <B>Deerma </B>
+                        Máy Hút Bụi DX118C <br><br>
+                        <B class="text-danger">349.000 <sup>đ</sup></B>
+                    </span>
+                    
+                    <span class="text-danger" style="text-decoration: line-through;">800.000đ</span>
+                    <span class="bg-primary rounded text-light" style="margin-left: 10px;"> -61%</span><br>
+                    <a href="html/chinhSachHoanTien.html" class="" style="text-decoration: none;"><small>Hoàn tiền gấp đôi nếu đâu rẽ hơn</small></a>
+                </div>
+            </div>
+            <div class="col" id="product">
+                <div class="row">
+                    <a href="html/Máy Hút Bụi Comfee CVC-SBLA1(B).html" id="item">
+                        <img src="img/may-hut-bui-comCVC_SBLA1.png" alt="" width="150px">
+                    </a>
+                </div>
+                <div class="row bg-light p-1 border" id="text">
+                    <span>
+                        <B>Comfee </B>
+                        Máy hut bụi CVC - SBLA1(B) <br>
+                        <B class="text-danger">349.000 <sup>đ</sup></B>
+                    </span>
+                    
+                    <span class="text-danger" style="text-decoration: line-through;">890.000đ</span>
+                    <span class="bg-primary rounded text-light" style="margin-left: 10px;"> -61%</span><br>
+                    <a href="html/chinhSachHoanTien.html" class="" style="text-decoration: none;"><small>Hoàn tiền gấp đôi nếu đâu rẽ hơn</small></a>
+                </div>
+            </div>
+            <div class="col" id="product">
+                <div class="row">
+                    <a href="" id="item">
+                        <img src="img/may-hut-bui-sv07.png" alt="" width="150px">
+                    </a>
+                </div>
+                <div class="row bg-light p-1 border" id="text">
+                    <span>
+                        <B>Perfect </B>
+                        Máy Hút Bụi SV07 650W <br>
+                        <B class="text-danger">399.000 <sup>đ</sup></B>
+                        <br><span class="text-danger">Siêu khuyến mãi</span>
+                    </span>
+                    
+                    <span class="text-danger" style="text-decoration: line-through;">600.000đ</span>
+                    <span class="bg-primary rounded text-light" style="margin-left: 10px;"> -42%</span><br>
+                    <a href="html/chinhSachHoanTien.html" class="" style="text-decoration: none;"><small>Hoàn tiền gấp đôi nếu đâu rẽ hơn</small></a>
+                </div>
+            </div>
+            <div class="col" id="product">
+                <div class="row">
+                    <a href="" id="item">
+                        <img src="img/may-hut-bui-DWX_E620P.png" alt="" width="150px">
+                    </a>
+                </div>
+                <div class="row  p-1 border" id="text">
+                    <span>
+                        <B>Daewoo </B>
+                        Máy Hút Bụi DWX-E620P 600W <br>
+                        <B class="text-danger">399.000 <sup>đ</sup></B>
+                    </span>
+                    
+                    <span class="text-danger" style="text-decoration: line-through;">1.100.000đ</span>
+                    <span class="bg-primary rounded text-light" style="margin-left: 10px;"> -66%</span><br>
+                    <a href="html/chinhSachHoanTien.html" class="" style="text-decoration: none;"><small>Hoàn tiền gấp đôi nếu đâu rẽ hơn</small></a>
+                </div>
+            </div>
+            <div class="col" id="product">
+                <div class="row">
+                    <a href="" id="item">
+                        <img src="img/may-hut-bui-MVC-16T-B.png" alt="" width="150px">
+                    </a>
+                </div>
+                <div class="row  p-1 border" id="text">
+                    <span>
+                        <B>Midea </B>
+                        Máy Hút Bụi MVC-16T-B <br><br>
+                        <B class="text-danger">399.000 <sup>đ</sup></B><br>
+                    </span>
+                    
+                    <span class="text-danger" style="text-decoration: line-through;">1.300.000đ</span>
+                    <span class="bg-primary rounded text-light" style="margin-left: 10px;"> -71%</span><br>
+                    <a href="html/chinhSachHoanTien.html" class="" style="text-decoration: none;"><small>Hoàn tiền gấp đôi nếu đâu rẽ hơn</small></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" id="product">
+                <div class="row">
+                    <a href="html/Máy Hút Bụi Nệm Sofa Gaabor VCD10M-WH02A.html" id="item">
+                        <img src="img/may-hut-bui-nemVCD10M_WH02A.png" alt="" width="150px">
+                    </a>
+                </div>
+                <div class="row bg-light p-1 border" id="text">
+                    <span>
+                        <B>Gaabor </B>
+                        Máy Hút Bụi Nệm Sofa VCD10M-WH02A Diệt Khuẩn <br>
+                        <B class="text-danger">399.000 <sup>đ</sup></B>
+                    </span>
+                    
+                    <span class="text-danger" style="text-decoration: line-through;">899.000đ</span>
+                    <span class="bg-primary rounded text-light" style="margin-left: 10px;"> -56%</span><br>
+                    <a href="html/chinhSachHoanTien.html" class="" style="text-decoration: none;"><small>Hoàn tiền gấp đôi nếu đâu rẽ hơn</small></a>
+                </div>
+            </div>
+            <div class="col" id="product">
+                <div class="row">
+                    <a href="" id="item">
+                        <img src="img/may-hut-bui-gaaVCW16M_BK01A.png" alt="" width="100%" height="100%">
+                    </a>
+                </div>
+                <div class="row bg-light p-1 border" id="text">
+                    <span>
+                        <B>Gaabor </B>
+                        Máy Hút Bụi VCW16M-BK01A <br>
+                        <B class="text-danger">499.000 <sup>đ</sup></B>
+                    </span>
+                    
+                    <span class="text-danger" style="text-decoration: line-through;">1.190.000đ</span>
+                    <span class="bg-primary rounded text-light" style="margin-left: 10px;"> -58%</span><br>
+                    <a href="html/chinhSachHoanTien.html" class="" style="text-decoration: none;"><small>Hoàn tiền gấp đôi nếu đâu rẽ hơn</small></a>
+                </div>
+            </div>
+            <div class="col" id="product">
+                <div class="row">
+                    <a href="" id="item">
+                        <img src="img/may-hut-bui-perSV11650W.png" alt="" width="150px">
+                    </a>
+                </div>
+                <div class="row bg-light p-1 border" id="text">
+                    <span>
+                        <B>Gaabor </B>
+                        Máy Hút Bụi SV11 650W <br><br>
+                        <B class="text-danger">399.000 <sup>đ</sup></B>
+                    </span>
+                    
+                    <span class="text-danger" style="text-decoration: line-through;">800.000đ</span>
+                    <span class="bg-primary rounded text-light" style="margin-left: 10px;"> -56%</span><br>
+                    <a href="html/chinhSachHoanTien.html" class="" style="text-decoration: none;"><small>Hoàn tiền gấp đôi nếu đâu rẽ hơn</small></a>
+                </div>
+            </div>
+            <div class="col" id="product">
+                <div class="row">
+                    <a href="" id="item">
+                        <img src="img/may-hut-bui-demCM800.png" alt="" width="150px">
+                    </a>
+                </div>
+                <div class="row bg-light p-1 border" id="text">
+                    <span>
+                        <B>Deerma </B>
+                        Máy Hút Bụi Đệm Giường CM800 <br>
+                        <B class="text-danger">749.000 <sup>đ</sup></B>
+                    </span>
+                    
+                    <span class="text-danger" style="text-decoration: line-through;">1.090.000đ</span>
+                    <span class="bg-primary rounded text-light" style="margin-left: 10px;"> -31%</span><br>
+                    <a href="html/chinhSachHoanTien.html" class="" style="text-decoration: none;"><small>Hoàn tiền gấp đôi nếu đâu rẽ hơn</small></a>
+                </div>
+            </div>
+            <div class="col" id="product">
+                <div class="row">
+                    <a href="" id="item">
+                        <img src="img/may-hut-bui-shiELUXGO_SVC1019L.png" alt="" width="150px">
+                    </a>
+                </div>
+                <div class="row bg-light p-1 border" id="text">
+                    <span>
+                        <B>Shimono </B>
+                        Máy Hút Bụi ELUXGO SVC1019L <br>
+                        <B class="text-danger">699.000 <sup>đ</sup></B>
+                    </span>
+                    
+                    <span class="text-danger" style="text-decoration: line-through;">3.090.000đ</span>
+                    <span class="bg-primary rounded text-light" style="margin-left: 10px;"> -82%</span><br>
+                    <a href="html/chinhSachHoanTien.html" class="" style="text-decoration: none;"><small>Hoàn tiền gấp đôi nếu đâu rẽ hơn</small></a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <img src="" alt="">
+        </div>
+        <div>
+            <img src="" alt="">
+        </div> 
+        <div>
+            <img src="" alt="">
+        </div>
+        <div>
+            <img src="" alt="">
+        </div>
+        <div>
+            <img src="" alt="">
+            
+        </div>
+    </div>
+
+    <footer>
+
+        <div class="permit">
+            <div class="left">
+                <img src="img/security.png" alt="" title="Bảo hành: 028.39505060">        
+                <span>
+                    <strong>Bảo hành: 028.39505060</strong>
+                    <p>(8h30 - 21h00)</p>
+                </span>
+            </div>
+            <div class="center">
+                <img src="img/purchuse.png" alt="" title="Mua hàng: 1900.2628">    
+                <span>
+                    <strong>Mua hàng: 1900.2628</strong>
+                    <p>(8h30 - 21h00)</p>
+                </span>
+            </div>
+            <div class="right">
+                <img src="img/lienHe.png" alt="" title="Khiếu nại: 028.39505060">        
+                <span>
+                    <strong>Khiếu nại: 028.39505060</strong>
+                    <p>(8h30 - 21h00)</p>
+                </span>
+            </div>
+        </div>
+        <div class="help">
+            
+            <div class="help-infor">
+                <h6><strong>THÔNG TIN CÔNG TI</strong></h6>
+                <ul>
+                    <li><a href="html/company.html">Giới thiệu công ty</a></li>
+                    <li><a href="html/chiNhanh.html">Hệ thống siêu thị</a></li>
+                    <li><a href="html/phuongCham.html">Phương châm bán hàng</a></li>
+                    <li><a href="html/muaHangDoanhNghiep.html">Mua hàng doanh nghiệp</a></li>
+                </ul>
+            </div>
+
+            <div class="help-infor">
+                <h6><strong>CHÍNH SÁCH CHUNG</strong></h6>
+                <ul>
+                    <li><a href="html/baoHanhNav.html">Bảo trì - Bảo hành - Đổi trả</a></li>
+                    <li><a href="html/quyDinhGiaoHang.html">Quy định giao hàng</a></li>
+                    <li><a href="html/dieuKhoanSuDung.html">Điều khoản sử dụng</a></li>
+                    <li><a href="html/thoaThuanNguoiDung.html">Thoả thuận người dùng</a></li>
+                    <li><a href="html/chinhSachHoanTien.html">Chính sách hoàn tiền</a></li>
+                    <li><a href="html/chinhSachSuDungCookie.html">Chính sách sử dụng Cookie</a></li>
+                </ul>
+            </div>
+
+            <div class="help-infor">
+                <h6><strong>THẺ THÀNH VIÊN</strong></h6>
+                <ul>
+                    <li><a href="">Liên hệ</a></li>
+                    <li><a href="html/hoTroThanVien.html">Hỗ trợ thành viên</a></li>
+                    <li><a href="html/giftCard.html">Giftcard - Thẻ quà tặng</a></li>
+                    <li><a href="html/quenLoiTV.html">Quyền lợi của Thành Viên</a></li>
+                </ul>
+            </div>
+
+            <div class="help-infor">
+                <h6><strong>MUA HÀNG ONLINE</strong></h6>
+                <ul>
+                    <li><a href="html/thongTinChuyenKhoan.html">Thông tin chuyển khoản</a></li>
+                    <li><a href="html/loiIchMuaHangOL.html">Lợi ích mua hàng online</a></li>
+                    <li><a href="html/huongDanMuaHang.html">Hướng dẫn mua hàng</a></li>
+                    <li><a href="html/cauHoiThuongGap.html">Câu hỏi thường gặp</a></li>
+                </ul>
+            </div>
+
+            <div class="help-infor">
+                <h6><strong>KẾT NỐI VỚI CHÚNG TÔI</strong></h6>
+                <a href="https://www.facebook.com/lamcoffeesg"><img src="img/facebook.png" alt=""></a>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="img/youtube.png" alt=""></a>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="img/tiktok.png" alt=""></a>
+            </div>
+        </div>
+        <hr>
+        <div id="about">
+            <div class="copyright">
+                <h6>THIENKHOAMACHINE.VN</h6>
+                <p>© 2024. Công ty TNHH THIEN KHOA</p>
+                <p>GPDKKD: 0312223211 do sở KH & ĐT TP.HCM cấp ngày 23/03/2024</p>
+                <p>Địa chỉ: chung cư 12 Âu Cơ, Quận Tân Phú, TP.HCM</p>
+                <p>Điện thoại: 0123456789 - Email: depTraiMachine@gmail.com.vn</p>
+                <p>Copyright: Tran Trinh Thien Khoa</p>
+            </div>
+            <div class="right">
+                <div id="certify">
+                    <span>Chứng nhận: </span>
+                    <img src="img/boCongThuong.png" alt="">
+                    <img src="img/BCT2.png" alt="">
+                </div>
+    
+                <div id="pay">
+                    <span>Thanh toán:</span>
+                    <img src="img/visa.png" alt="">
+                    <img src="img/mastercard.png" alt="">
+                    <img src="img/jcbPay.png" alt="">
+                    <img src="img/googlePay.png" alt="">
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+
+    <script src="js/index.js">
+        
+    </script>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        cssMode: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        mousewheel: true,
+        keyboard: true,
+        loop: true,
+
+        speed: 300,
+        autoplay: {
+            delay: 3000,
+        },
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+        });
+    </script>
+</body>
+</html>
