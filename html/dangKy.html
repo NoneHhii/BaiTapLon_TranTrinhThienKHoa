@@ -87,17 +87,18 @@
                 $('#txtEmail').blur(ktEmail);
 
                 function ktName() {
-                    var mName = /(^[A-Z]{1})([a-z]+)(\s[A-Z]{1}([a-z]+))*$/;
+                    var mName = /^[A-Z][a-zA-Z]{3,}(?: [A-Z][a-zA-Z]*){0,2}$/;
                     if($('#txtName').val() == '') {
                         document.querySelector('#ckName').innerHTML = 'Bắt buộc nhập';
                         return false;
                     }else {
-                        if(mName.test($('#txtName').val()) == false) {
-                            document.querySelector('#ckName').innerHTML = 'Chữ cái đầu của mỗi từ phải viết hoa';
-                            return false;
-                        }else {
+                        if(mName.test($('#txtName').val())) {
                             document.querySelector('#ckName').innerHTML = '';
                             return true;
+                            
+                        }else {
+                            document.querySelector('#ckName').innerHTML = 'Chữ cái đầu của mỗi từ phải viết hoa';
+                            return false;
                         }
                     }
                 }
@@ -128,8 +129,31 @@
 
                 $("#sign").click(function() {
                     
-                    alert("Đăng ký thành công");
-                    location.href = "../index.html";
+                    if(ktName() && ktEmail() && ktPass() && ktPhone()) {
+                        if($('#acp').is(':checked')) {
+                            var nameuser = $('#txtUser').val();
+                            var email = $('#txtEmail').val();
+                            var pass = $('#txtPass').val();
+                            var phone = $('#txtPhone').val();
+
+                            var user = {
+                                nameUser: nameuser,
+                                email: email,
+                                pass: pass,
+                                phone: phone
+                            }
+
+                            localStorage.setItem('USER_INFOR', JSON.stringify(user));
+                        
+                            alert("Đăng ký thành công");
+                            location.href = "../index.html";
+
+                            document.querySelector("#ckAcp").innerHTML = "";
+                        }else {
+                            document.querySelector("#ckAcp").innerHTML = "Bạn chưa đồng ý với điều khoản sử dụng";
+                        }
+                    }
+                    
                     
                 })
             })
@@ -264,7 +288,7 @@
                                     <label for="txtPass">Mật khẩu <span class="text-danger">(*)</span></label>
                                 </div>
                                 <div class="row">
-                                    <input class="form-control" type="text" id="txtPass" style="width: 90%;">
+                                    <input class="form-control" type="password" id="txtPass" style="width: 90%;">
                                     <span class="text-danger" id="ckPass"></span>
                                 </div>
                             </div>
@@ -273,7 +297,7 @@
                                     <label for="txtRePass">Nhập lại mật khẩu <span class="text-danger">(*)</span></label>
                                 </div>
                                 <div class="row">
-                                    <input class="form-control" type="text" id="txtRePass" style="width: 90%;">
+                                    <input class="form-control" type="password" id="txtRePass" style="width: 90%;">
                                     <span class="text-danger" id="ckRePass"></span>
                                 </div>
                             </div>
@@ -363,11 +387,12 @@
 
                         <div class="form-check">
                             <input type="checkbox" name="" id="acp">
-                            <label for="acp">Tôi đã đọc và đồng ý với <a href="../html/dieuKhoanSuDung.html">Điều kiện sử dụng</a> - <a href="../html/thoaThuanNguoiDung.html">Thỏa thuận</a> người dùng của website.</label>
+                            <label for="acp">Tôi đã đọc và đồng ý với <a href="../html/dieuKhoanSuDung.html">Điều kiện sử dụng</a> - <a href="../html/thoaThuanNguoiDung.html">Thỏa thuận</a> người dùng của website.</label> 
+                            <br><span class="text-danger m-3" id="ckAcp" style="font-size: 14;"></span>
                         </div><br>
 
                         <div class="row">
-                            <button class="btn btn-primary active mx-auto d-flex justify-content-center" style="width: 15%;" disabled id="sign">ĐĂNG KÝ</button>
+                            <button type="button" class="btn btn-primary active mx-auto d-flex justify-content-center" style="width: 15%;" disabled id="sign">ĐĂNG KÝ</button>
                         </div>
                     </form>
                 </div>
